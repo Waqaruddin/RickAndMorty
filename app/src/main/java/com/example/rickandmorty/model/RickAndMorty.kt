@@ -1,5 +1,7 @@
 package com.example.rickandmorty.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
 data class RickAndMortyResponse(
@@ -14,11 +16,13 @@ data class Info(
     val prev: Any
 ):Serializable
 
+
 data class Characters(
     val created: String,
     val episode: List<String>,
     val gender: String,
     val id: Int,
+
     val image: String,
     val location: Location,
     val name: String,

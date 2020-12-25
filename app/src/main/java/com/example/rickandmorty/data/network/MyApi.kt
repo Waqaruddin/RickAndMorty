@@ -11,7 +11,7 @@ import retrofit2.http.GET
 interface MyApi {
 
     @GET("?page=1/")
-    fun getCharacters(): Call<RickAndMortyResponse>
+    fun getCharacters(): Single<RickAndMortyResponse>
 
     companion object{
         operator fun invoke():MyApi{
