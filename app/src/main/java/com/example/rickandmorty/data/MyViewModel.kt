@@ -6,7 +6,8 @@ import com.example.rickandmorty.data.network.Repository
 import com.example.rickandmorty.model.Characters
 
 class MyViewModel : ViewModel() {
-    fun getCharacter(): LiveData<ArrayList<Characters>> {
+
+    fun getCharacter():LiveData<ArrayList<Characters>>{
         return Repository().getCharacters()
     }
 }
