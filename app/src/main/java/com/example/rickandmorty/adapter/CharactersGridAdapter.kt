@@ -26,7 +26,15 @@ class CharactersGridAdapter(var context: Context, var mList: List<Characters>) :
            Picasso.get()
                    .load(character.image)
                    .into(itemView.image_view_grid)
+
+            itemView.setOnClickListener{
+                var intent = Intent(context, CharacterDetailsActivity::class.java )
+                intent.putExtra("key", character)
+                context.startActivity(intent)
+            }
         }
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

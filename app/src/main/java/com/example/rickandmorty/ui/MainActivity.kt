@@ -18,7 +18,6 @@ import com.example.rickandmorty.model.Characters
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    // private var characterAdapter: CustomAdapter? = null
     lateinit var characterAdapter: CustomAdapter
     lateinit var characterGridAdapter: CharactersGridAdapter
     var mList: ArrayList<Characters> = ArrayList()
