@@ -27,7 +27,7 @@ class Repository {
                 .subscribeWith(object : DisposableSingleObserver<RickAndMortyResponse>() {
                     override fun onSuccess(t: RickAndMortyResponse) {
                         character.value = t.results
-                        storeCharacters(t.results, context)
+                        saveCharactersToDB(t.results, context)
 
                     }
 
@@ -40,16 +40,8 @@ class Repository {
 
     }
 
-    fun saveData(app: Application) {
-        var db = Room.databaseBuilder(app, MyDatabase::class.java, "mydb")
-                .allowMainThreadQueries()
-                .build()
 
-        db.getDao().insertCharacterList(character as List<Characters>)
-
-    }
-
-    private fun storeCharacters(characterList: ArrayList<Characters>, context: Context) {
+    private fun saveCharactersToDB(characterList: ArrayList<Characters>, context: Context) {
         MyDatabase.getRoomDbInstance(context).getDao().insertCharacterList(characterList)
     }
 
