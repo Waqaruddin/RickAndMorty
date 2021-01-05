@@ -4,15 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.rickandmorty.model.Characters
 
 @Dao
 interface MyDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addCharacter(character:Characters)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCharacterList(characters:List<Characters>)
+
     @Query("select * from Characters")
-    fun readCharacter():LiveData<List<Characters>>
+    fun readCharacters():LiveData<List<Characters>>
 }

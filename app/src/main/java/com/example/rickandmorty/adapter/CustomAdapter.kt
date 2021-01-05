@@ -12,7 +12,7 @@ import com.example.rickandmorty.ui.CharacterDetailsActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_adapter_characters.view.*
 
-class CustomAdapter(var mContext: Context, var mList: ArrayList<Characters>) :
+class CustomAdapter(var mContext: Context, var mList: List<Characters>) :
     RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -45,7 +45,7 @@ class CustomAdapter(var mContext: Context, var mList: ArrayList<Characters>) :
         return mList.size
     }
 
-    fun setData(l:ArrayList<Characters>){
+    fun setData(l:List<Characters>){
         mList = l
         notifyDataSetChanged()
     }
