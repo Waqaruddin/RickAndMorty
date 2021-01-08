@@ -13,7 +13,6 @@ class MyViewModel : ViewModel() {
     }
 
     fun getCharactersFromDB(context: Context):LiveData<List<Characters>>{
-        Repository().getCharacters(context)
         return Repository().readData(context)
     }
 }
